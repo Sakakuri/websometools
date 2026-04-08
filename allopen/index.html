@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+const params = new URLSearchParams(location.search);
+let list = params.get("u");
+
+if (!list) {
+    document.body.innerText = "No URLs";
+} else {
+    let urls = list.split(",");
+
+    urls.forEach(url => {
+        url = url.trim();
+
+        if (url.startsWith("http://") || url.startsWith("https://")) {
+            window.open(url, "_blank");
+        }
+    });
+}
+</script>
+</body>
+</html>
