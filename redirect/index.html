@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+const params = new URLSearchParams(location.search);
+let target = params.get("u");
+
+if (target && (target.startsWith("http://") || target.startsWith("https://"))) {
+    location.replace(target);
+} else {
+    document.body.innerText = "Invalid URL";
+}
+</script>
+</body>
+</html>
