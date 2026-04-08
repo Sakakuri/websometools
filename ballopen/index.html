@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>クリックで開きます（左・右どちらでもOK）</p>
+
+<script>
+function openAll() {
+    const params = new URLSearchParams(location.search);
+    let list = params.get("u");
+
+    if (!list) return;
+
+    let urls = list.split(",");
+
+    urls.forEach(url => {
+        url = url.trim();
+        if (url.startsWith("http://") || url.startsWith("https://")) {
+            let w = window.open("about:blank", "_blank");
+            if (w) w.location.href = url;
+        }
+    });
+}
+
+// 左クリック
+document.addEventListener("click", openAll);
+
+// 右クリック
+document.addEventListener("contextmenu", function(e) {
+    e.preventDefault(); // 右クリックメニューを消す
+    openAll();
+});
+</script>
+
+</body>
+</html>
