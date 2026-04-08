@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<input id="url" placeholder="https://example.com">
+<button onclick="makeRedirect()">redirect生成</button>
+<button onclick="makeAllOpen()">allopen生成</button>
+
+<p id="out"></p>
+
+<script>
+function makeRedirect() {
+    let url = document.getElementById("url").value.trim();
+    let link = location.origin + "/redirect/?u=" + encodeURIComponent(url);
+    document.getElementById("out").innerText = link;
+}
+
+function makeAllOpen() {
+    let url = document.getElementById("url").value.trim();
+    let link = location.origin + "/allopen/?u=" + encodeURIComponent(url);
+    document.getElementById("out").innerText = link;
+}
+</script>
+
+</body>
+</html>
